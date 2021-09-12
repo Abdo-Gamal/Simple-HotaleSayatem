@@ -1,0 +1,57 @@
+﻿@using HotalManagmentSystem.Models
+@model HotalManagmentSystem.Models.RoomCategory
+@{
+    ViewBag.Title = "DetailsAboutOneRoomCategorie";
+}
+<h2>DetailsAboutOneRoomCategorie</h2>
+<html>
+<head>
+    <!-- this meta for coding -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            /*border-collapse: collapse;*/
+        }
+
+        table {
+            border-spacing: 5px;
+        }
+    </style>
+</head>
+<bode>
+    <table class="table table-dark table-sm" style="width: 100%;">
+        <th>RoomID</th>
+        <th>RoomPrice</th>
+        <th>Status</th>
+        <th>Evacuation date</th>
+        @foreach (var item in Model.Rooms)
+        {
+            <tr>
+                <td>@item.RoomID</td>
+                <td>@item.RoomCategorys.CategoryPrice</td>
+                <td>@item.IsReseved</td>
+                @if (item.IsReseved == true)
+                {
+                    <td>@item.RoomAndUsers.Where(d => d.FK_roomId == item.RoomID).Select(r => r.reservationDate.AddDays(r.NumberOfDays).ToString("dd-MM-yyyy"))</td>
+                    @*var query = (from c in item.RoomAndUsers
+                                     where item.RoomID == c.FK_roomId
+                                     select c.reservationDate.AddDays(c.NumberOfDays)).FirstOrDefault();
+                        <td>@query</td>*@
+                }
+                else
+                {
+                    <td>Room Is Available</td>
+                }
+            </tr>
+        }
+    </table>
+    <br />
+    <p><a href="/RoomCategories/ShowAllCategoryDetails" class="btn btn-success">Back To List</a></p>
+</bode>
+</html>

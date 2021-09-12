@@ -1,0 +1,40 @@
+﻿@model HotalManagmentSystem.Models.Room
+@using HotalManagmentSystem.Models;
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IsReseved)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsReseved)
+        </dd>
+    </dl>
+    <br />
+    @if (ViewBag.Message != null)
+    {
+        var cssview = (ViewBag.Success == true ? "alert-success" : "alert-danger");
+        <div class="@cssview ">
+            <h3>@ViewBag.Message</h3>
+        </div>
+    }
+
+    @using (Html.BeginForm("DeleteConefirmed", "AdminRoom", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="id" id="ID" value="@Model.RoomID" />//give id
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

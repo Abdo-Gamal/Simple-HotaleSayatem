@@ -1,0 +1,35 @@
+﻿@using HotalManagmentSystem.Models
+@{
+    ViewBag.Title = "SearchOfUserData";
+}
+
+<br>
+<div class="container wow fadeInUp">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="section-title">Search Of User Data</h3>
+            <div class="section-title-divider"></div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<form class="row g-3 border-bottom center-block" action="/User/SearchedData" method="post">
+
+    <div class="container wow fadeInUp">
+        <div>
+            <label for="">National Id</label>
+            <input type="text"
+                   name="UserNationalID"
+                   class="form-control"
+                   required>
+        </div>
+
+        <br />
+        <button type="submit" class="btn btn-dark">Search</button>
+        <br />
+    </div>
+</form>
+<br />
+

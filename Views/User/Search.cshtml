@@ -1,0 +1,35 @@
+﻿@using HotalManagmentSystem.Models
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+@model User
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>UserID</th>
+            <th>UserName</th>
+            <th>UserNationalID</th>
+            <th>UserPhone</th>
+            <th>UserBarthDate</th>
+            <th>DetailsAboutOneUser</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.UserID</td>
+            <td>@Model.UserName</td>
+            <td>@Model.UserNationalID</td>
+            <td>@Model.UserPhone</td>
+            <td>@Model.UserBarthDate.Date.ToString("dd-MM-yyyy")</td>
+            <td><p><a href="/User/MoreDetails/@Model.UserID" class="btn btn-dark">Details Of Booking Room</a></p></td>
+        </tr>
+
+    </tbody>
+   @*<a href="/User/CheckLogin/@Model" class="btn btn-dark">Go to back</a>*@
+
+</table>
+
+<br />
+

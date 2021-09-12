@@ -1,0 +1,42 @@
+﻿@using HotalManagmentSystem.Models;
+@using HotalSystem.Services;
+
+@model List<RoomCategory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Add New category", "Create", "AdminRoomType")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <h3>CategoryNumberOfPerson<h3>
+        </th>   
+        <th>
+            <h3>CategoryPrice<h3>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryNumberOfPerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryPrice)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CategoryID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID })
+            </td>
+        </tr>
+    }
+</table>

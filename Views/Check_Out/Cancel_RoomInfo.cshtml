@@ -1,0 +1,98 @@
+﻿@model IEnumerable<HotalManagmentSystem.Models.RoomAndUser>
+
+@{
+    ViewBag.Title = "Cancel_RoomInfo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Cancel Room Info</h2>
+
+<form action="@Url.Action("CanceledRoomsID","Check_Out",FormMethod.Post)" method="post">
+
+    <h3>@ViewBag.user.UserName</h3> 
+
+    <table class="table">
+        <tr>
+
+            <th>
+                Room Id
+            </th>
+            <th>
+                Room Type
+            </th>
+
+            <th>
+                Room Price
+            </th>
+            <th>
+                Number Of Days
+            </th>
+            <th>
+                Reservation Date
+
+            </th>
+            <th>
+
+                Expiry Date
+            </th>
+            <th>
+                Cancel Room
+
+            </th>
+        </tr>
+
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FK_roomId)
+                </td>
+                <td>
+                    @ViewData[$"{item.FK_roomId}type"]
+                </td>
+                <td>
+                    @ViewData[$"{item.FK_roomId}price"]
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfDays)
+                </td>
+                <td>
+                    @item.reservationDate.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.reservationDate)*@
+                    @item.reservationDate.AddDays(item.NumberOfDays-1).ToString("dd/MM/yyyy")
+                </td>
+
+
+                <td>
+                    <input type="checkbox" name="listRoomId" value="@item.FK_roomId" />
+                    @Html.HiddenFor(modelItem => item.FK_roomId)
+                    @*@Html.HiddenFor(modelItem => item.FK_UserID)*@
+                    <input type="hidden" name="UserID" value="@item.FK_UserID"
+                </td>
+
+
+
+            </tr>
+
+        }
+
+
+
+    </table>
+    <div>
+        @{
+            if (ViewBag.message != null)
+            {
+                <span class="text-danger">@ViewBag.message</span>
+            }
+        }
+    </div>
+
+    <input type="submit" value="submit" />
+</form>
+

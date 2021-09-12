@@ -1,0 +1,144 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<!-- ======= Hero Section ======= -->
+<body>
+    <section id="hero">
+        <div class="hero-container">
+            <div class="wow fadeIn">
+                <div class="hero-logo">
+                    <img class="" src="~/Content/assets/img/logo.png" alt="Imperial">
+                </div>
+
+                <h1>Welcome to Imperial Hotel</h1>
+                <h2>We Provides <span class="typed" data-typed-items=" Comfortable Rooms , beautiful Views, , Exciting Services"></span></h2>
+                <div class="actions">
+
+                    <a onclick="location.href='@Url.Action("Booking","Reservation")'" class="btn-get-started"> Book Now </a>
+                    <a onclick="location.href='@Url.Action("Login","User")'" class="btn-get-started"> Login </a>
+
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+    <!-- ======= Portfolio Section ======= -->
+   
+    <section id="portfolio">
+        <div class="container wow fadeInUp">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">Portfolio</h3>
+                    <div class="section-title-divider"></div>
+                    <p class="section-description">Si stante, hoc natura videlicet vult, salvam esse se, quod concedimus ses haec dicturum fuisse</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <ul id="portfolio-flters">
+                        <li data-filter="*" class="filter-active">All</li>
+                        <li data-filter=".filter-app">One Person</li>
+                        <li data-filter=".filter-card">Two Person</li>
+                        <li data-filter=".filter-web">Reception</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row portfolio-container">
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <img src="~/Content/assets/img/portfolio/a1.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>One Person</h4>
+                        <p>One Person</p>
+                        <a href="~/Content/assets/img/portfolio/a1.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="fa fa-plus"></i></a>
+                        <a href="/RoomCategories/ShowAllCategoryDetails" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <img src="~/Content/assets/img/portfolio/c1.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Reception</h4>
+                        <p>Reception</p>
+                        <a href="~/Content/assets/img/portfolio/c1.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="fa fa-plus"></i></a>
+                        <a href="/RoomCategories/ShowAllCategoryDetails" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <img src="~/Content/assets/img/portfolio/a2.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>One Person</h4>
+                        <p>One Person</p>
+                        <a href="~/Content/assets/img/portfolio/a2.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 2"><i class="fa fa-plus"></i></a>
+                        <a href="/RoomCategories/ShowAllCategoryDetails" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <img src="~/Content/assets/img/portfolio/b1.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Two Person</h4>
+                        <p>Two Person</p>
+                        <a href="~/Content/assets/img/portfolio/b1.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 2"><i class="fa fa-plus"></i></a>
+                        <a href="/RoomCategories/ShowAllCategoryDetails" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <img src="~/Content/assets/img/portfolio/c2.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Reception</h4>
+                        <p>Reception</p>
+                        <a href="~/Content/assets/img/portfolio/c2.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 2"><i class="fa fa-plus"></i></a>
+                        <a href="/RoomCategories/ShowAllCategoryDetails" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <img src="~/Content/assets/img/portfolio/a3.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>One Person</h4>
+                        <p>One Person</p>
+                        <a href="~/Content/assets/img/portfolio/a3.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 3"><i class="fa fa-plus"></i></a>
+                        <a href="/RoomCategories/ShowAllCategoryDetails" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <img src="~/Content/assets/img/portfolio/b2.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Two Person</h4>
+                        <p>Two Person</p>
+                        <a href="~/Content/assets/img/portfolio/b2.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 1"><i class="fa fa-plus"></i></a>
+                        <a href="/RoomCategories/ShowAllCategoryDetails" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <img src="~/Content/assets/img/portfolio/b3.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Two Person</h4>
+                        <p>Two Person</p>
+                        <a href="~/Content/assets/img/portfolio/b3.jpg" data3-gall="portfolioGallery" class="venobox preview-link" title="Card 3"><i class="fa fa-plus"></i></a>
+                        <a href="/RoomCategories/ShowAllCategoryDetails" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <img src="~/Content/assets/img/portfolio/c3.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Reception</h4>
+                        <p>Reception</p>
+                        <a href="~/Content/assets/img/portfolio/c3.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="fa fa-plus"></i></a>
+                        <a href="/RoomCategories/ShowAllCategoryDetails" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</body>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<HotalManagmentSystem.Models.Room>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>all room </h2>
+<p>
+    @Html.ActionLink("Create New", "Create", "AdminRoom")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IsReseved)
+        </th>
+        <th>
+           <h4> category of room </h4>
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsReseved)
+        </td>
+        <td>
+            @ViewData[$"{item.FK_CategoryID}"]
+            @*Model.RoomCategory.CategoryID*@
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RoomID }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.RoomID }) |*@
+            @Html.ActionLink("Delete", "Delete", new { id=item.RoomID })
+        </td>
+    </tr>
+}
+</table>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<HotalManagmentSystem.Models.RoomAndUser>
+
+@{
+    ViewBag.Title = "CanceledRoomsID";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Canceled Rooms</h2>
+
+<p>
+    <h3>@ViewBag.user.UserName</h3>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.reservationDate)
+        </th>
+        <th>
+            end date
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfDays)
+        </th>
+        <th>
+            Room ID 
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.reservationDate.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+
+                @item.reservationDate.AddDays(item.NumberOfDays-1).ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FK_roomId)
+            </td>
+           
+
+        </tr>
+    }
+    <div>
+        <h4>The total price is $ @ViewBag.price</h4>
+    </div>
+</table>
+<a href="/Home/Index">Back to home</a>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<HotalManagmentSystem.Models.RoomAndUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Booking info</h2>
+
+<p>
+    <h3>@ViewBag.user.UserName</h3>
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            Room Id
+        </th>
+        <th>
+            Room Type
+        </th>
+
+        <th>
+            Room Price
+        </th>
+        <th>
+            Number Of Days
+        </th>
+        <th>
+            Reservation Date
+
+        </th>
+        <th>
+
+            Expiry Date
+        </th>
+     
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    
+    <td>
+        @Html.DisplayFor(modelItem => item.FK_roomId)
+    </td>
+    <td>
+        @ViewData[$"{item.FK_roomId}type"]
+    </td>
+    <td>
+        @ViewData[$"{item.FK_roomId}price"]
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NumberOfDays)
+    </td>
+    <td>
+        
+        @item.reservationDate.ToString("dd/MM/yyyy")
+    </td>
+    <td>
+        @*@Html.DisplayFor(modelItem => item.reservationDate)*@
+        @item.reservationDate.AddDays(item.NumberOfDays-1).ToString("dd/MM/yyyy")
+       
+    </td>
+    
+</tr>
+}
+
+</table>
+<a href="Home/Index">Back to home</a>

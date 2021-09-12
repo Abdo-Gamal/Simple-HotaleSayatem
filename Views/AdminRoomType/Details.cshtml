@@ -1,0 +1,47 @@
+﻿@model HotalManagmentSystem.Models.RoomCategory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details of Catogry</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomTypeCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomTypeCount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UnreservedRoomCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UnreservedRoomCount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

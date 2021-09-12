@@ -1,0 +1,93 @@
+﻿@model HotalManagmentSystem.Models.Employee
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit Employee</h2>
+
+@using (Html.BeginForm("Edit", "AdminEmployee", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Employee_ID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmployeeNationalID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EmployeeNationalID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EmployeeNationalID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmployeeName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EmployeeName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EmployeeName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmployeePhone, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EmployeePhone, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EmployeePhone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmployeeSalary, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EmployeeSalary, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EmployeeSalary, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmployeeBarthDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        @*<div class="col-md-10">
+        @Html.EditorFor(model => model.EmployeeBarthDate, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.EmployeeBarthDate, "", new { @class = "text-danger" })
+        *@
+        <div class="col-md-10">
+            <input type="text" value="@Model.EmployeeBarthDate.ToString("dd/MM/yyyy")" name="EmployeeBarthDate" class="form-control"/>
+        </div>
+    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EmployeeImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <img src="~/Content/Images/@Model.EmployeeImage " width="100px" />
+                    @Html.HiddenFor(mode=>mode.EmployeeImage )
+                </div>
+                <div class="col-md-10">
+                    <input type="file" name="ImageFile" id="ImageFile" />
+                    @Html.ValidationMessageFor(model => model.ImageFile, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+            <!---->
+            @if (ViewBag.Message != null)
+            {
+                var cssview = (ViewBag.Success == true ? "alert-success" : "alert-danger");
+                <div class="@cssview ">
+                    <h3>@ViewBag.Message</h3>
+                </div>
+            }
+            <!---->
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>

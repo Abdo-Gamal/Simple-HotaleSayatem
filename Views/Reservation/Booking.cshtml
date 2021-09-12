@@ -1,0 +1,78 @@
+﻿@using HotalManagmentSystem.Models
+@using HotalSystem.ViewModel
+@using System.Collections.Generic;
+@{
+    ViewBag.Title = "Booking";
+
+}
+<h2>Booking</h2>
+
+<form action="/Reservation/Savebooking" method="post">
+    <div>
+        <label for="Name">Name</label>
+        <input type="text" name="Username" class="form-control" required>
+    </div>
+
+    <div>
+        <label for="">Natiinal Id</label>
+        <input type="text" name="UserNationalID" class="form-control" required>
+    </div>
+    <div>
+        <label for="">Acount password</label>
+        <input type="password" name="UserPassword" class="form-control" required>
+        @if (ViewBag.mss != null)
+        {
+            <span class="text-danger">@ViewBag.mss</span>
+        }
+    </div>
+    <div>
+        <label for="">BarthDate</label>
+        <input type="date" name="UserBarthDate" class="form-control" required>
+    </div>
+    <div>
+        <label for="">Phone Number</label>
+        <input type="text" name="UserPhone" class="form-control" required>
+    </div>
+    <div>
+
+        <label for="">Room Type</label>
+        <select name="CatagoryId" class="form-control">
+            @{
+                foreach (var item in @ViewBag.Roomcategories)//unreservered
+                {
+                    <option value="@item.CategoryID">"@item.CategoryNumberOfPerson"</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div>
+        <label for="">ReservationDate</label>
+        <input type="date" name="reservationDate" class="form-control" selected required>
+    </div>
+
+    <div>
+
+        <label for="">NumberOfRoom</label>
+        <input type="number"
+               min="1"
+               name="NumberOfRoom"
+               class="form-control"
+               required>
+        @if (ViewBag.message != null)
+        {
+            <span class="text-danger">@ViewBag.message</span>
+        }
+    </div>
+
+    <div>
+        <label for="">NumberOfDays</label>
+        <input type="number"
+               min="1" max="30"
+               name="NumberOfDays"
+               class="form-control"
+               required>
+    </div>
+    <br />
+    <input type="submit" value="Submit" />
+</form>

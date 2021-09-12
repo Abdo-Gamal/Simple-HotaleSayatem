@@ -1,0 +1,47 @@
+﻿@model HotalManagmentSystem.Models.Admin
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete Admin </h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminPassward)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminPassward)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emb_ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.emb_ID)
+        </dd>
+    </dl>
+    @using (Html.BeginForm("DeleteConefirmed", "AdminInfo", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="id" id="ID" value="@Model.Admin_ID" />////////give id to action
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,79 @@
+﻿@model HotalManagmentSystem.Models.RoomCategory
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Add Room Category</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label>type  of Room</label>
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CategoryNumberOfPerson, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CategoryNumberOfPerson, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.CategoryDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CategoryDescription, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CategoryDescription, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CategoryPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CategoryPrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.RoomTypeCount, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.RoomTypeCount, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RoomTypeCount, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryImage, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CategoryImage, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CategoryImage, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+         <input type="hidden" name="UnreservedRoomCount" value="RoomTypeCount" />
+        </div>*@
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </div>
+    <br />
+    @if (ViewBag.Massege != null)
+    {
+        <div class="alert-danger">
+            <h3>@ViewBag.Massege</h3>
+        </div>
+    }
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "AdminRoomtype")
+</div>

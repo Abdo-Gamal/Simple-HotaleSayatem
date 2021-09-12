@@ -1,0 +1,43 @@
+﻿@using HotalManagmentSystem.Models;
+@model List<Admin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Admin Email
+        </th>
+        <th>
+            Admin Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminEmail)
+            </td>
+          
+            <td>
+                @ViewData[$"{item.emb_ID}"]
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Admin_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Admin_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Admin_ID })
+            </td>
+        </tr>
+    }
+
+</table>

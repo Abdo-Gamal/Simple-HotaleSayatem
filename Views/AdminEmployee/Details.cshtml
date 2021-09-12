@@ -1,0 +1,67 @@
+﻿@model HotalManagmentSystem.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details Employee</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeNationalID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeNationalID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeePhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeePhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeSalary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeSalary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeBarthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeBarthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeImage)
+        </dt>
+
+        <dd>
+          <img src="~/Content/Images/@Model.EmployeeImage" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Employee_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

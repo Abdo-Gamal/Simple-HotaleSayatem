@@ -1,0 +1,95 @@
+﻿@using HotalManagmentSystem.Models
+@model RoomAndUser
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form action="/EditReservation/SaveEdit/@Model.RoomAndUserId" method="post">
+    <div>
+        
+        <input type="hidden" value="@Model.User.UserName" name="Username" class="form-control" required>
+    </div>
+
+    <div>
+        
+        <input type="hidden" value="@Model.User.UserNationalID" name="UserNationalID" class="form-control" required>
+    </div>
+    <div>
+        
+        <input type="hidden"value="@Model.User.UserPassword" name="UserPassword" class="form-control" required>
+     
+    </div>
+    <div>
+        
+        <input type="hidden" value="@Model.User.UserBarthDate" name="UserBarthDate" class="form-control" required>
+    </div>
+    <div>
+       
+        <input type="hidden" value="@Model.User.UserPhone" name="UserPhone" class="form-control" required>
+    </div>
+    <div>
+
+        <label for="">Room Type</label>
+        <select name="CatagoryId" class="form-control">
+            @{
+                foreach (var item in @ViewBag.Roomcategories)//unreservered
+                {
+                    if (Model.Room.FK_CategoryID == item.CategoryID)
+                    {
+                        <option value="@item.CategoryID" selected>"@item.CategoryNumberOfPerson"</option>
+                    }
+                    else
+                    {
+                        <option value="@item.CategoryID">"@item.CategoryNumberOfPerson"</option>
+                    }
+
+                }
+
+
+}
+        </select>
+    </div>
+    <div>
+        @{
+            if (@ViewBag.mss != null)
+            {
+                <span style="color:red">@ViewBag.mss</span>
+            }
+        }
+
+    </div>
+
+    <div>
+        <label for="">ReservationDate</label>
+        <input type="datetime" name="reservationDate" value="@Model.reservationDate.ToString("MM/dd/yyyy")" class="form-control" required >
+    </div>
+
+    <div>
+
+      
+        <input type="hidden"
+               min="1"
+               name="NumberOfRoom"
+               class="form-control"
+               required>
+        @if (ViewBag.message != null)
+        {
+            <span class="text-danger">@ViewBag.message</span>
+        }
+    </div>
+
+    <div>
+        <label for="">NumberOfDays</label>
+        <input type="number"
+               min="1" max="30"
+               name="NumberOfDays"
+               value="@Model.NumberOfDays"
+               class="form-control"
+               required>
+    </div>
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+

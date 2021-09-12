@@ -1,0 +1,46 @@
+﻿@using HotalManagmentSystem.Models;
+@{
+    ViewBag.Title = "Login";
+}
+
+<br>
+<div class="container wow fadeInUp">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="section-title">Login</h3>
+            <div class="section-title-divider"></div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<form class="row g-3 border-bottom center-block" action="/User/CheckLogin" method="post">
+
+    <div class="container wow fadeInUp">
+        <div>
+            <label for="">National Id</label>
+            <input type="text"
+                   name="UserNationalID"
+                   class="form-control"
+                   required>
+
+        </div>
+        <div>
+            <label for="">Password</label>
+            <input type="password"
+                   name="UserPassword"
+                   class="form-control"
+                   required>
+           @if (ViewBag.message != null)
+            {
+                <span class="text-danger">@ViewBag.message</span>
+            }
+        </div>
+       
+        <br />
+        <button type="submit" class="btn btn-dark">Enter</button>
+        <br />
+    </div>
+</form>
+<br />

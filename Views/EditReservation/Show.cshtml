@@ -1,0 +1,74 @@
+﻿@model IEnumerable<HotalManagmentSystem.Models.RoomAndUser>
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            client Name
+        </th>
+        <th>
+            Room Id
+        </th>
+        <th>
+            Room Type
+        </th>
+
+        <th>
+            Room Price
+        </th>
+        <th>
+            Number Of Days
+        </th>
+        <th>
+            Reservation Date
+
+        </th>
+        <th>
+
+            Expiry Date
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.User.UserName
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FK_roomId)
+            </td>
+            <td>
+                @ViewData[$"{item.FK_roomId}type"]
+            </td>
+            <td>
+                @ViewData[$"{item.FK_roomId}price"]
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfDays)
+            </td>
+            <td>
+                @item.reservationDate.ToString("MM/dd/yyyy")
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.reservationDate)*@
+                @item.reservationDate.AddDays(item.NumberOfDays-1).ToString("MM/dd/yyyy")
+            </td>
+            <td>
+                <a href="/EditReservation/Edit/@item.RoomAndUserId">Edit</a>
+            </td>
+         
+        </tr>
+        
+      }
+ </table>
+

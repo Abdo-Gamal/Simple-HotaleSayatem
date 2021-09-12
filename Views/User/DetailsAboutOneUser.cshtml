@@ -1,0 +1,97 @@
+﻿@using HotalManagmentSystem.Models
+@model List<HotalManagmentSystem.Models.RoomAndUser>
+@{
+    ViewBag.Title = "DetailsAboutOneUser";
+}
+
+
+<br>
+<div class="container wow fadeInUp">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="section-title">Details Of Booking Room</h3>
+            <div class="section-title-divider"></div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<!--<html>
+<head>-->
+<!-- this meta for coding -->
+<!--<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        table, th, td {
+            text-align: center border: 5px solid black;
+            /*border-collapse: collapse;*/
+        }
+
+        table {
+            border-spacing: 5px;
+        }
+    </style>
+</head>
+<bode>
+    <table class="table table-dark table-sm" style="width: 100%;">
+
+        <th>UserID</th>
+        <th>reservationDate</th>
+        <th>NumberOfDays</th>
+        <th>DiedLineOfRoom</th>
+        <th>RoomID</th>
+        <tr>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td rowspan="@item">@item.FK_UserID</td>
+                <td rowspan="@item">@item.reservationDate.ToString("dd-MM-yyyy")</td>
+                <td rowspan="@item">@item.NumberOfDays</td>
+                <td rowspan="@item">@item.reservationDate.AddDays(item.NumberOfDays).ToString("dd-MM-yyyy")</td>
+                <td rowspan="@item">@item.FK_roomId</td>
+            </tr>
+
+        }
+            </tr>
+
+        </table>
+        <br />
+        <td><p><a href="/User/ShowUsersDetils" class="btn btn-success">Back To List</a></p></td>
+
+    </bode>
+</html>-->
+<table class="table">
+<thead class="table-dark">
+    <tr>
+        <th>UserID</th>
+        <th>reservationDate</th>
+        <th>NumberOfDays</th>
+        <th>DiedLineOfRoom</th>
+        <th>RoomID</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td rowspan="@item">@item.FK_UserID</td>
+                <td rowspan="@item">@item.reservationDate.ToString("dd-MM-yyyy")</td>
+                <td rowspan="@item">@item.NumberOfDays</td>
+                <td rowspan="@item">@item.reservationDate.AddDays(item.NumberOfDays).ToString("dd-MM-yyyy")</td>
+                <td rowspan="@item">@item.FK_roomId</td>
+            </tr>
+        }
+    </tr>
+    <tr>
+        <td><p><a href="/User/ShowUsersDetils" class="btn btn-dark">Back To List</a></p></td>
+    </tr>
+
+</tbody>
+</table>    

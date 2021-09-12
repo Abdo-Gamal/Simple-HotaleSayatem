@@ -1,0 +1,48 @@
+﻿@using HotalManagmentSystem.Models
+@model List<HotalManagmentSystem.Models.User>
+@{
+    ViewBag.Title = "ShowUsersDetils";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br>
+<div class="container wow fadeInUp">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="section-title">Users Details</h3>
+            <div class="section-title-divider"></div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>UserName</th>
+            <th>UserNationalID</th>
+            <th>UserPhone</th>
+            <th>UserBarthDate</th>
+            <th>DetailsAboutOneUser</th>
+            <th>Edit Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.UserName</td>
+                <td>@item.UserNationalID</td>
+                <td>@item.UserPhone</td>
+                <td>@item.UserBarthDate.ToString("dd-MM-yyyy")</td>
+                <td><p><a href="/AdminAndUser/DetailsAboutOneUser/@item.UserID" class="btn btn-dark">Show The User Detailse </a></p></td>
+                <td><p><a href="/AdminAndUser/Edit/@item.UserID" class="btn btn-dark">Edit</a></p></td>
+
+            </tr>
+        }
+            </tr>
+        </tbody>
+    </table>   

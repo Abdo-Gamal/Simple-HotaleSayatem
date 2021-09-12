@@ -1,0 +1,66 @@
+﻿@model HotalManagmentSystem.Models.Room
+@using HotalManagmentSystem.Models;
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Room</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.RoomID)
+    <input type="hidden" name="RoomID" value="@Model.RoomID" />
+    <input type="hidden" name="oldCategoryID" value="@Model.FK_CategoryID" />
+
+    <label for=""> Room Category</label>
+    <div>
+        <select name="IsReseved" id="IsReseved" class="form-control form-control">
+
+            <option value="@Model.IsReseved" selected>@Model.IsReseved</option>
+        </select>
+    </div>
+    <label for=""> Room Category</label>
+    <div>
+        <select name="FK_CategoryID" id="FK_CategoryID" class="form-control form-control">
+            @foreach (RoomCategory Cat in ViewBag.Cats)
+            {
+                if (Model.FK_CategoryID == Cat.CategoryID)
+                {
+                    <option value="@Cat.CategoryID" selected>@Cat.CategoryNumberOfPerson</option>
+
+                }
+                else
+                {
+                    <option value="@Cat.CategoryID">@Cat.CategoryNumberOfPerson</option>
+                }
+
+            }
+        </select>
+
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        var cssview = (ViewBag.Success == true ? "alert-success" : "alert-danger");
+        <div class="@cssview ">
+            <h3>@ViewBag.Message</h3>
+        </div>
+    }
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </div>
+
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

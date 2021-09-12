@@ -1,0 +1,86 @@
+﻿@model HotalManagmentSystem.Models.User
+@{
+    ViewBag.Title = "EditUser";
+}
+
+<br>
+<div class="container wow fadeInUp">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="section-title">Edit User</h3>
+            <div class="section-title-divider"></div>
+        </div>
+    </div>
+</div>
+
+<br />
+<form class="row g-3 border-bottom center-block" action="/User/SaveEditUser/@Model.UserID" method="Post">
+
+    <div class="container wow fadeInUp">
+
+        <div>
+            <label for="User Name" class="form-label">UserName</label>
+            <br />
+            <input type="text" name="Username"
+                   value="@Model.UserName"
+                   class="form-control"
+                   required>
+
+        </div>
+        <br />
+        <div>
+            <label for="User National ID" class="form-label">UserNationalID</label>
+            <br />
+            <input type="text"
+                   name="UserNationalID"
+                   value="@Model.UserNationalID"
+                   class="form-control"
+                   pattern="[\d]{1,15}"
+                   title="UserNationalID Must By Number only"
+                   required>
+
+        </div>
+        <br />
+        <div>
+            <label for="User Password" class="form-label">UserPassword</label>
+            <br />
+            <input type="text"
+                   name="UserPassword"
+                   value="@Model.UserPassword"
+                   class="form-control"
+                   required>
+
+        </div>
+        <br />
+        <div>
+            <label for="User Phone" class="form-label">UserPhone</label>
+            <br />
+            <input type="text"
+                   name="UserPhone"
+                   value="@Model.UserPhone"
+                   class="form-control"
+                   pattern="[\d]{7,11}"
+                   title="UserPhone Must By number only"
+                   required>
+        </div>
+        <br />
+        <div>
+            <label for="User Barth Date" class="form-label">UserBarthDate</label>
+            <br />
+            <input type="text"
+                   name="UserBarthDate"
+                   value="@Model.UserBarthDate.ToString("dd-MM-yyyy")"
+                   class="form-control"
+                   required>
+        </div>
+
+        <br />
+        <div>
+            <button type="submit" class="btn btn-dark">SaveEditUser</button>
+            <span class="navigationSpace" />
+            @* <a href="/User/ShowUsersDetils" class="btn btn-dark">Cansel</a>*@
+        </div>
+    </div>
+</form>
+<br />
+

@@ -1,0 +1,47 @@
+﻿@using HotalManagmentSystem.Models
+@{
+    ViewBag.Title = "MoreDetails";
+}
+<h2>MoreDetails</h2>
+@model List<HotalManagmentSystem.Models.RoomAndUser>
+<br>
+<div class="container wow fadeInUp">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="section-title">Details Of Booking Room</h3>
+            <div class="section-title-divider"></div>
+        </div>
+    </div>
+</div>
+
+<br />
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>UserID</th>
+            <th>reservationDate</th>
+            <th>NumberOfDays</th>
+            <th>DiedLineOfRoom</th>
+            <th>RoomID</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FK_UserID</td>
+                    <td>@item.reservationDate.ToString("dd-MM-yyyy")</td>
+                    <td>@item.NumberOfDays</td>
+                    <td>@item.reservationDate.AddDays(item.NumberOfDays).ToString("dd-MM-yyyy")</td>
+                    <td>@item.FK_roomId</td>
+                </tr>
+            }
+
+        </tr>
+        <tr>
+            <td><p><a href="/User/Search/@Model[0].FK_UserID" class="btn btn-dark">Back</a></p></td>
+        </tr>
+
+    </tbody>
+</table>

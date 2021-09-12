@@ -1,0 +1,73 @@
+﻿@model HotalManagmentSystem.Models.User
+@{
+    ViewBag.Title = "SearchedData";
+}
+
+
+<br>
+<div class="container wow fadeInUp">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="section-title">Details</h3>
+            <div class="section-title-divider"></div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+
+    <!-- this meta for coding -->
+    @*<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">*@
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>*@
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>UserName</th>
+            <th>UserNationalID</th>
+            <th>UserPhone</th>
+            <th>UserBarthDate</th>
+            <th>DetailsAboutOneUser</th>
+        </tr>     
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.UserName</td>
+            <td>@Model.UserNationalID</td>
+            <td>@Model.UserPhone</td>
+            <td>@Model.UserBarthDate.Date.ToString("dd-MM-yyyy")</td>
+            <td><p><a href="/User/DetailsAboutOneUser/@Model.UserID" class="btn btn-dark">Details Of Booking Room</a></p></td>
+
+        </tr>
+
+    </tbody>
+</table>    
+@*<style>
+        table, th, td {
+            border: 1px solid black;
+            /*border-collapse: collapse;*/
+        }
+
+        table {
+            border-spacing: 5px;
+        }
+ </style>*@
+
+
+<!--<table class="table table-dark table-sm" style="width: 120%;">-->
+
+    
+    
+    @*<tr>
+            <td>@Model.UserName</td>
+            <td>@Model.UserNationalID</td>
+            <td>@Model.UserPhone</td>
+            <td>@Model.UserBarthDate</td>
+            <td><p><a href="/User/DetailsAboutOneUser/@Model.UserID" class="btn btn-success">Go To Show Details One User</a></p></td>
+        </tr>*@
+<!--</table>-->
+

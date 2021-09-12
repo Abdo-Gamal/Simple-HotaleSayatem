@@ -1,0 +1,39 @@
+﻿@model List<HotalManagmentSystem.Models.RoomCategory>
+@{
+    ViewBag.Title = "ShowAllCategoryDetails";
+}
+<br>
+<div class="container wow fadeInUp">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="section-title">All Room Type</h3>
+            <div class="section-title-divider"></div>
+        </div>
+    </div>
+</div>
+<br />
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>CategoryRoomType</th>
+            <th>CategoryDescription</th>
+            <th>CategoryPrice</th>
+            <th>CategoryRoomImage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>@item.CategoryNumberOfPerson</td>
+            <td>@item.CategoryDescription</td>
+            <td><h4>$@item.CategoryPrice</h4></td>
+            <td><img src="~/Content/imges/@item.CategoryImage" style="width:270px;height:250px" /></td>
+        </tr>
+            }
+        </tr>
+           
+    </tbody>
+</table>    
